@@ -7,11 +7,11 @@ function gradiente(){
   var ctx = document.getElementById("canvas").getContext("2d");
   var imageData;
     imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    for(x=0; x<canvas.height; x++){
-      for(y=0; y<canvas.width; y++){
-        setPixel(imageData, y, x, r, g, b, 255);
+    for(x=0; x<canvas.width; x++){
+      for(y=0; y<canvas.height; y++){
+        setPixel(imageData, x, y, r, g, b, 255);
       }
-      if(x <= canvas.height/2){
+      if(x <= canvas.width/2){
         r++;
         g++;
         b--;
