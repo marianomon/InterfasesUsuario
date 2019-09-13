@@ -48,7 +48,7 @@ function moverPol(X, Y){
   arrPoligon[polActivo].centroX = X;
   arrPoligon[polActivo].centroY = Y;
   for (var i = 0; i < arrPoligon[polActivo].cantidadDePuntos; i++) {
-      console.log("X: " + arrPoligon[polActivo]);
+      console.log("i " + i + " pol " +  polActivo);
       arrPoligon[polActivo].puntos[i].posX = arrPoligon[polActivo].puntos[i].posX - (auxiX - X);
       arrPoligon[polActivo].puntos[i].posY = arrPoligon[polActivo].puntos[i].posY - (auxiY - Y);
 
@@ -78,21 +78,21 @@ function getMousePos(){
 
 function dibujarPol(){
   limpiar();
-  // for (var i = 0; i < contadorPol; i++) {
+  for (var i = 0; i < contadorPol; i++) {
     for (var j = 0; j < arrPoligon[polActivo].cantidadDePuntos; j++) {
       ctx.beginPath();
-      ctx.arc(arrPoligon[polActivo].puntos[j].posX, arrPoligon[polActivo].puntos[j].posY, 10 ,0, 2*Math.PI);
-      ctx.strokeStyle = arrPoligon[polActivo].puntos[j].color;
+      ctx.arc(arrPoligon[i].puntos[j].posX, arrPoligon[i].puntos[j].posY, 10 ,0, 2*Math.PI);
+      ctx.strokeStyle = arrPoligon[i].puntos[j].color;
       if(j>1){
-        ctx.moveTo(arrPoligon[polActivo].puntos[j-1].posX, arrCirc[j-1].posY)
-        ctx.lineTo(arrPoligon[polActivo].puntos[j].posX, arrPoligon[polActivo].puntos[j].posY);
+        ctx.moveTo(arrPoligon[i].puntos[j-1].posX, arrCirc[j-1].posY)
+        ctx.lineTo(arrPoligon[i].puntos[j].posX, arrPoligon[i].puntos[j].posY);
       }
       ctx.stroke();
       ctx.beginPath();
-      ctx.arc(arrPoligon[polActivo].centroX, arrPoligon[polActivo].centroY, 7 ,0, 2*Math.PI);
+      ctx.arc(arrPoligon[i].centroX, arrPoligon[i].centroY, 7 ,0, 2*Math.PI);
       ctx.strokeStyle = '#00ff00';
       ctx.stroke();
-    // }
+    }
   }
 }
 
